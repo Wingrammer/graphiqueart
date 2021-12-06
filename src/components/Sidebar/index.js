@@ -10,7 +10,7 @@ import Documents from "../../assets/svgs/draft.svg";
 import PowerOff from "../../assets/svgs/power-off-solid.svg";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { colors } from "../../assets";
+import { colors, logo2 } from "../../assets";
 
 const Container = styled.div`
   position: fixed;
@@ -209,7 +209,7 @@ const Sidebar = () => {
       </Button>
       <SidebarContainer>
         <Logo>
-          <img src={logo} alt="logo" />
+          <img src={logo2} alt="logo" />
         </Logo>
         <SlickBar clicked={click}>
           <Item

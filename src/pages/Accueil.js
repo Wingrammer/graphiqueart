@@ -1,32 +1,17 @@
-import React, { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
-import { banner, colors, motif } from '../assets'
+import { banner, colors, motif, slide } from '../assets'
 import Footer from '../components/Footer'
-import Navbar from '../components/Navbar/Navbar'
 import Services from '../components/Services'
 import '../App.css'
 
 function Accueil() {
 
-    const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1224px)'})
-    const isBigScreen = useMediaQuery({ query: '(min-width: 1824px)' })
     const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
-    const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
-    const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' })
-
-    /*
-
-    const [greyBox, setGreyBox] = useState({})
-    const sizeGreyBox = () => window.innerWidth <= 600 ? setGreyBox({width:'75vw', fontSize: '1.5rem'}) : setGreyBox({width:600, fontSize: 35})
-    useEffect(() => {
-        sizeGreyBox()
-    }, [])
-
-    window.addEventListener('resize',sizeGreyBox)*/
-
+    
     return (
         <div>
-            <img style={styles.banner} alt="Femme africaine" width="100%" src={banner}/>
+            <video style={styles.banner} autoplay="autoPlay" loop muted playsInline src={slide}></video>
+            {/*<img style={styles.banner} alt="Femme africaine" width="100%" src={banner}/>*/}
             <img alt="Motif" width="100%" src={motif} />
             <div style={styles.textContainer}>
                 <div style={styles.textLine}><span style={styles.yellow}>Une lumière</span> de créativité</div>
@@ -54,7 +39,9 @@ function Accueil() {
 const styles = {
     banner: {
         marginBottom: -3,
-        height:"65vh"
+        maxWidth:'100%',
+        height:'100vh',
+        backgroundColor:colors.black
     },
     textContainer:{
         display: 'flex',
@@ -63,7 +50,7 @@ const styles = {
         alignItems: 'center',
         color: colors.white,
         backgroundColor: colors.black,
-        height: '29vh',
+        padding:'65px 0',
         marginTop: -3,
         fontSize: 37,
         fontWeight: 'bold' 
@@ -75,10 +62,12 @@ const styles = {
         padding: 5
     },
     bigGreyText:{
-        color:'grey',
-        marginBottom: 10
+        color:colors.darkgrey,
+        marginBottom: 10,
+        fontWeight:360
     },
     bigGreyTextContainer:{
+        backgroundColor: colors.lightgrey,
         display:'flex',
         justifyContent:'center',
         alignItems:'center',

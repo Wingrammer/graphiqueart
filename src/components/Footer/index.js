@@ -1,12 +1,12 @@
 import React from 'react'
-import { colors } from '../../assets'
+import { colors, logo3 } from '../../assets'
 
 function Footer() {
     return (
         <div style={styles.footer}>
             <div style={styles.container}>
                 <div style={styles.logoSlogan}>
-                    <img alt="graphiqueart" className="brand" width={160} src='/image/graphique-art-logo.svg' />
+                    <img alt="graphiqueart" className="brand" width={160} src={logo3} />
                     <div style={styles.slogan}>
                         Un sens inné du design
                     </div>

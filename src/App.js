@@ -1,13 +1,25 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Accueil from './pages/Accueil';
-import Navbar from './components/Navbar/Navbar';
 import GlobalStyle from './globalStyles';
 import Sidebar from './components/Sidebar';
+import { colors, loading } from './assets';
+import { useEffect, useState } from 'react';
 
 function App() {
+
+  const [siteLoading, setSiteLoading] = useState(true)
+
+  useEffect(() => {
+    setInterval(() => setSiteLoading(false), 5000)
+  }, [])
+
   return (
     <div className="App">
+      {siteLoading ?
+      <div style={styles.loadingContainer}>
+        <img alt="page loading" style={{maxHeight:'100vh'}} width="100%" src = {loading} />
+      </div> :
       <BrowserRouter>
         <GlobalStyle />
         <Sidebar />
@@ -23,8 +35,20 @@ function App() {
           <Route path="/" element={<Accueil/>}/>
         </Routes>
       </BrowserRouter>
+      }
     </div>
   );
+}
+
+const styles = {
+  loadingContainer:{
+    height:"100vh", 
+    width:'100%',
+    display:'flex', 
+    justifyContent:'center', 
+    alignItems:'center',
+    backgroundColor: colors.black
+  }
 }
 
 export default App;
